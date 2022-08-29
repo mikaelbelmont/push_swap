@@ -15,7 +15,7 @@ int	checknum(char **av)
 		{
 			if (ft_isdigit(av[i][j]) == 0)
 			{
-				write(1, "Error\n", 1);
+				write(1, "Error\n", 6);
 				return (0);
 			}
 			j++;
@@ -36,11 +36,11 @@ int	checkdups(char **av)
 		j = i + 1;
 		while (av[j])
 		{
-			if (ft_strlen(av[i] == ft_strlen(av[j])))
+			if (ft_strlen(av[i]) == ft_strlen(av[j]))
 			{
-				if (strncmp(av[i], av[j], strlen(av[i])) == 0)
+				if (strcmp(av[i], av[j]) == 0)
 				{
-					write(1, "Error\n", 1);
+					write(1, "Error\n", 6);
 					return (0);
 				}
 			}
@@ -57,11 +57,12 @@ int main (int ac, char **av)
 	t_stack	*b;
 
 	if (!checknum(av) || !checkdups(av))
-
-	if (ac == 2)
-	{
-		init_args(&a, av);
-	}	
+		exit (0);
+	a = 0;
+	b = 0;
+	if (ac < 2)
+		exit (0);
+	init_args(&a, av);
 	exit(0);
 	
 
