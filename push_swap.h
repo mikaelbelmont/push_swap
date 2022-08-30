@@ -1,7 +1,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
+#include "libft/libft.h"
+#include "stdio.h"
 
 typedef struct s_stack
 {
@@ -10,5 +11,6 @@ typedef struct s_stack
 	struct s_stack *next;
 }	t_stack;
 
+int ft_checker(t_stack *a, char **av);
 
 #endif

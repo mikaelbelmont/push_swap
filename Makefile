@@ -1,16 +1,18 @@
 NAME = push_swap
 
-SRCS = 
+SRCS = main.c checker.c
 
-OBJS = $(SRCS:.c=.o)
+LIBFT = libft/libft.a
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address  
 
 CC = gcc
 
 $(NAME):	$(OBJS) $(LIBFT)
-		cd libft && make all
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+		$(CC) $(CFLAGS) $(SRCS) -Llibft -lft -o $(NAME)
+
+$(LIBFT):
+	make -C libft
 
 all:	$(NAME)
 
