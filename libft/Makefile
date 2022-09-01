@@ -31,13 +31,14 @@ OBJS_BONUS = $(BONUS:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(OBJS_BONUS)
+	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
 
 all: $(NAME)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(OBJS_BONUS)
 
 fclean: clean
 	rm -f $(NAME)

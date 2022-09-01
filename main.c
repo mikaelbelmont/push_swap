@@ -39,12 +39,13 @@ int	checknum(char **av)
 
 int main(int ac, char **av)
 {
-	t_stack	*a;
-	//t_stack	*b;
+	t_list	*a;
+	//t_list	*b;
 
 	a = 0;
 	//b = 0;
-	if (!ft_checker(a, av))
+	printf("isso e um teste\n");
+	if (!ft_checker(&a, av))
 		exit (0);
 	if (ac < 2)
 		exit (0);

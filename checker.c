@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static long ft_atoibuf(char **str)
+static long	ft_atoibuf(char **str)
 {
 	int	i;
 	long	n;
@@ -40,36 +40,36 @@ static long ft_atoibuf(char **str)
 	return (n * neg);
 }
 
-int ft_checkdups(t_stack *a)
+int	ft_checkdups(t_list **a)
 {
-	t_stack *tmp;
+	t_list *tmp;
 
-	tmp = a;
+	tmp = *a;
 	if (!tmp)
 		return (1);
 	while (tmp->next)
 	{
-		if (tmp->num == tmp->next->num)
+		if (tmp->content == tmp->next->content)
 			return (0);
 		tmp = tmp->next;
 	}
 	return (1);
 }
 
-int ft_newnode(t_stack **a, int n)
+void	ft_newnode(t_list **a, int n)
 {
-	t_stack	*newnode;
+	t_list	*newnode;
 
-	newnode = malloc(sizeof(t_stack));
+	newnode = malloc(sizeof(t_list));
 	if (!newnode)
-		return (0);
+		exit (0);
 	newnode->next = NULL;
-	newnode->num = n;
+	newnode->content = n;
 	newnode->order = 0;
 	ft_lstadd_back(a, newnode);
 }
 
-int ft_checker(t_stack **a, char **av)
+int	ft_checker(t_list **a, char **av)
 {
 	int n;
 	int i;
@@ -78,7 +78,7 @@ int ft_checker(t_stack **a, char **av)
 	n = 0;
 	while (av[i])
 	{
-		n = ft_atoibuf(av[i++]);
+		n = ft_atoibuf(&av[i]);
 		if (!ft_checkdups(a) || !n)
 			return (0);
 		ft_newnode(a, n);

@@ -4,13 +4,13 @@
 #include "libft/libft.h"
 #include "stdio.h"
 
-typedef struct s_stack
-{
-	int		num;
-	int		order;
-	struct s_stack *next;
-}	t_stack;
+//typedef struct s_list
+//{
+//	int		num;
+//	int		order;
+//	struct s_list *next;
+//}	t_list;
 
-int ft_checker(t_stack *a, char **av);
+int ft_checker(t_list **a, char **av);
 
 #endif
