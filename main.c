@@ -44,13 +44,14 @@ int main(int ac, char **av)
 
 	a = 0;
 	//b = 0;
-	printf("isso e um teste\n");
 	if (!ft_checker(&a, av))
+	{
+		printf("isso e um teste\n");
 		exit (0);
+	}
 	if (ac < 2)
 		exit (0);
-	//init_args(&a, av);
-	//exit(0);
-
+	if (ac == 3)
+		sort2(&a);
 	return (0);
 }

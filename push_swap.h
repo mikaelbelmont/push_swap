@@ -4,13 +4,8 @@
 #include "libft/libft.h"
 #include "stdio.h"
 
-//typedef struct s_list
-//{
-//	int		num;
-//	int		order;
-//	struct s_list *next;
-//}	t_list;
-
 int ft_checker(t_list **a, char **av);
+void   sa(t_list **a);
+void sort2(t_list **a);
 
-#endif
+#endif 

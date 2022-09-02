@@ -14,11 +14,9 @@
 
 static long	ft_atoibuf(char **str)
 {
-	int	i;
 	long	n;
 	long	neg;
 
-	i = 0;
 	n = 0;
 	neg = 1;
 	while (*str[i] == ' ' || *str[i] == '\n' || *str[i] == '\t'
@@ -30,9 +28,11 @@ static long	ft_atoibuf(char **str)
 			neg *= -1;
 		i++;
 	}
-	while (*str[i] >= '0' && *str[i] <= '9')
+	//printf("aq\n");
+	while (**str >= '0' && **str <= '9')
 	{
-		n = n * 10 + (*str[i] - '0');
+		n = n * 10 + (**str - '0');
+		printf("aq\n");
 		if (n < -2147483647 || n > 2147483647)
 			return (2147483648);
 		i++;
@@ -80,7 +80,10 @@ int	ft_checker(t_list **a, char **av)
 	{
 		n = ft_atoibuf(&av[i]);
 		if (!ft_checkdups(a) || !n)
+		{
+			printf("deu ruim por aq doidao\n");
 			return (0);
+		}
 		ft_newnode(a, n);
 	}
 	return (1);
