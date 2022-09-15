@@ -44,13 +44,16 @@ int main(int ac, char **av)
 
 	a = 0;
 	//b = 0;
+	if (ac < 2)
+	{
+		printf("Pass at least 2 parameters\n");
+		exit(0);
+	}
 	if (!ft_checker(&a, av))
 	{
 		printf("isso e um teste\n");
 		exit (0);
 	}
-	if (ac < 2)
-		exit (0);
 	if (ac == 3)
 		sort2(&a);
 	return (0);

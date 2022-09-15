@@ -19,41 +19,39 @@ static long	ft_atoibuf(char **str)
 
 	n = 0;
 	neg = 1;
-	while (*str[i] == ' ' || *str[i] == '\n' || *str[i] == '\t'
-		|| *str[i] == '\v' || *str[i] == '\f' || *str[i] == '\r')
-		i++;
-	if (*str[i] == '-' || *str[i] == '+')
+	while (**str == ' ' || **str == '\n' || **str == '\t'
+		|| **str == '\v' || **str == '\f' || **str == '\r')
+	if (**str == '-' || **str == '+')
 	{
-		if (*str[i] == '-')
+		if (**str == '-')
 			neg *= -1;
-		i++;
+		*str += 1;
 	}
-	//printf("aq\n");
 	while (**str >= '0' && **str <= '9')
 	{
 		n = n * 10 + (**str - '0');
-		printf("aq\n");
-		if (n < -2147483647 || n > 2147483647)
+		
+		if (n < -2147483648 || n > 2147483647)
 			return (2147483648);
-		i++;
+		*str += 1;
 	}
 	return (n * neg);
 }
 
-int	ft_checkdups(t_list **a)
+int	ft_checkdups(t_list **a, int n)
 {
 	t_list *tmp;
 
-	tmp = *a;
-	if (!tmp)
-		return (1);
-	while (tmp->next)
+	tmp = (*a);
+	//if (!tmp)
+	//	return (1);
+	while (tmp)
 	{
-		if (tmp->content == tmp->next->content)
-			return (0);
+		if (tmp->content == n)
+			return (1);
 		tmp = tmp->next;
 	}
-	return (1);
+	return (0);
 }
 
 void	ft_newnode(t_list **a, int n)
@@ -67,6 +65,8 @@ void	ft_newnode(t_list **a, int n)
 	newnode->content = n;
 	newnode->order = 0;
 	ft_lstadd_back(a, newnode);
+	if (!a)
+		exit(0);
 }
 
 int	ft_checker(t_list **a, char **av)
@@ -76,15 +76,21 @@ int	ft_checker(t_list **a, char **av)
 	
 	i = 0;
 	n = 0;
-	while (av[i])
+	while (av[++i])
 	{
-		n = ft_atoibuf(&av[i]);
-		if (!ft_checkdups(a) || !n)
+		if (av[1][0] == '\0')
+			exit(0);
+		while (av[1][0])
 		{
-			printf("deu ruim por aq doidao\n");
-			return (0);
+			n = ft_atoibuf(&av[i]);
+			//ft_checkdups(a, n) || 
+			if (n > 2147483647)
+			{
+				printf("deu ruim por aq doidao\n");
+				exit(0);
+			}
+			ft_newnode(a, n);
 		}
-		ft_newnode(a, n);
 	}
 	return (1);
 }
