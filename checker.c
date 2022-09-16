@@ -69,28 +69,29 @@ void	ft_newnode(t_list **a, int n)
 		exit(0);
 }
 
-int	ft_checker(t_list **a, char **av)
+void	ft_checker(t_list **a, char **av)
 {
 	int n;
-	int i;
+	int	i;
+	int first;
 	
 	i = 0;
 	n = 0;
+	first = 0;
 	while (av[++i])
 	{
-		if (av[1][0] == '\0')
+		if (av[i][0] == '\0')
 			exit(0);
-		while (av[1][0])
+		while (av[i][0])
 		{
 			n = ft_atoibuf(&av[i]);
-			//ft_checkdups(a, n) || 
 			if (n > 2147483647)
-			{
-				printf("deu ruim por aq doidao\n");
 				exit(0);
-			}
+			if (first && ft_checkdups(a, n))
+				exit(0);
 			ft_newnode(a, n);
+			printf("foi aq\n");
+			first = 1;
 		}
 	}
-	return (1);
 }
