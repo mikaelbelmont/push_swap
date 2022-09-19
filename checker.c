@@ -60,13 +60,13 @@ void	ft_newnode(t_list **a, int n)
 
 	newnode = malloc(sizeof(t_list));
 	if (!newnode)
-		exit (0);
+		ft_end(a);
 	newnode->next = NULL;
 	newnode->content = n;
 	newnode->order = 0;
 	ft_lstadd_back(a, newnode);
 	if (!a)
-		exit(0);
+		ft_end(a);
 }
 
 void	ft_checker(t_list **a, char **av)
@@ -81,14 +81,14 @@ void	ft_checker(t_list **a, char **av)
 	while (av[++i])
 	{
 		if (av[i][0] == '\0')
-			exit(0);
+			ft_end(a);
 		while (av[i][0])
 		{
 			n = ft_atoibuf(&av[i]);
 			if (n > 2147483647)
-				exit(0);
+				ft_end(a);
 			if (first && ft_checkdups(a, n))
-				exit(0);
+				ft_end(a);
 			ft_newnode(a, n);
 			printf("foi aq\n");
 			first = 1;

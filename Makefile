@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = main.c checker.c mvs.c sort1.c
+SRCS = main.c checker.c mvs.c sort1.c exit.c
 
 LIBFT = libft/libft.a
 

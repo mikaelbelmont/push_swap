@@ -50,11 +50,10 @@ int main(int ac, char **av)
 		exit(0);
 	}
 	ft_checker(&a, av);
-	printf("isso e um teste\n");
 	if (ac == 3)
 	{
-		printf("isso e um teste\n");
 		sort2(&a);
 	}
+	ft_end(&a);
 	return (0);
 }
