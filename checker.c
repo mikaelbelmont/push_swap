@@ -63,7 +63,7 @@ void	ft_newnode(t_list **a, int n)
 		ft_end(a);
 	newnode->next = NULL;
 	newnode->content = n;
-	newnode->order = 0;
+	newnode->index = 0;
 	ft_lstadd_back(a, newnode);
 	if (!a)
 		ft_end(a);
@@ -90,7 +90,6 @@ void	ft_checker(t_list **a, char **av)
 			if (first && ft_checkdups(a, n))
 				ft_end(a);
 			ft_newnode(a, n);
-			printf("foi aq\n");
 			first = 1;
 		}
 	}
