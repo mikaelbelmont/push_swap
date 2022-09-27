@@ -2,12 +2,16 @@
 
 void rotate(t_list **stack)
 {
-	t_list	*tmp;
-	
-	tmp = (*stack)->next;
-	ft_lstadd_back(&tmp, *stack);
-	(*stack)->next = 0;
-	*stack = tmp;
+	t_list	*first;
+	t_list	*second;
+
+	first = *stack;
+	second = (*stack)->next;
+	while ((*stack)->next)
+		(*stack) =(*stack)->next;
+	(*stack)->next = first;
+	*stack = second;
+	first->next = 0;
 }
 
 void ra(t_list **a)
