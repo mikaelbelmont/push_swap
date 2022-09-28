@@ -27,25 +27,25 @@ void sort3(t_list **a)
 	}
 }
 
-void sort4(t_list **a, t_list **b)
-{
+//void sort4(t_list **a, t_list **b)
+//{
+//
+//}
 
-}
-
-void ft_sorts(int ac, t_list **a, t_list **b)
+void ft_sorts(int ac, t_list **a) //, t_list **b
 {
 	if (ac == 3)
 	{
-		sort2(&a);
+		sort2(a);
 		return ;
 	}
 	if (ac == 4)
 	{
-		sort3(&a);
+		sort3(a);
 		return ;
 	}
 
-	else
-		sort_big();
+	//else
+	//	sort_big();
 	return ;
 }

@@ -40,17 +40,17 @@ int	checknum(char **av)
 int main(int ac, char **av)
 {
 	t_list	*a;
-	t_list	*b;
+	//t_list	*b;
 
 	a = 0;
-	b = 0;
+	//b = 0;
 	if (ac < 2)
 	{
 		printf("Pass at least 2 parameters\n");
 		exit(0);
 	}
 	ft_checker(&a, av);
-	ft_sorts(ac, &a, &b);
+	ft_sorts(ac, &a); //&b
 	ft_end(&a);
 	return (0);
 }
