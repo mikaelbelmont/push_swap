@@ -21,7 +21,7 @@ void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
-void ft_sorts(int ac, t_list **a); //, t_list **b
+void    ft_sorts(t_list **a, t_list **b);
 void	sort2(t_list **a);
 void	sort3(t_list **a);
 

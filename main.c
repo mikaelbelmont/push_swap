@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:56 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/08/30 17:22:59 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:11:31 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,30 @@ int	checknum(char **av)
 	return (1);
 }
 
+void	ft_printlist(t_list *stack)
+{
+	t_list *tmp = stack;
+	
+	while (tmp != 0)
+	{
+		printf("%d - ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
+
 int main(int ac, char **av)
 {
 	t_list	*a;
-	//t_list	*b;
+	t_list	*b;
 
 	a = 0;
-	//b = 0;
+	b = 0;
 	if (ac < 2)
-	{
-		printf("Pass at least 2 parameters\n");
 		exit(0);
-	}
 	ft_checker(&a, av);
-	ft_sorts(ac, &a); //&b
+	ft_sorts(&a, &b);
+	ft_printlist(a);
 	ft_end(&a);
 	return (0);
 }

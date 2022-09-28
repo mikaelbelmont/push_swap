@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:53 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/08/30 19:02:24 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:49:43 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static long	ft_atoibuf(char **str)
 	neg = 1;
 	while (**str == ' ' || **str == '\n' || **str == '\t'
 		|| **str == '\v' || **str == '\f' || **str == '\r')
+		*str += 1;
 	if (**str == '-' || **str == '+')
 	{
 		if (**str == '-')
@@ -43,12 +44,15 @@ int	ft_checkdups(t_list **a, int n)
 	t_list *tmp;
 
 	tmp = (*a);
-	//if (!tmp)
-	//	return (1);
+	if (!tmp)
+		return (1);
 	while (tmp)
 	{
 		if (tmp->content == n)
+		{
+			write(1, "Error\n", 6);
 			return (1);
+		}
 		tmp = tmp->next;
 	}
 	return (0);
