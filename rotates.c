@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotates.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:27:32 by mbarreto          #+#    #+#             */
+/*   Updated: 2022/09/30 13:34:27 by mbarreto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rotate(t_list **stack)
@@ -8,7 +20,7 @@ void	rotate(t_list **stack)
 	first = *stack;
 	second = (*stack)->next;
 	while ((*stack)->next)
-		(*stack) =(*stack)->next;
+		(*stack) = (*stack)->next;
 	(*stack)->next = first;
 	*stack = second;
 	first->next = 0;

@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:56 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/09/28 17:11:31 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:19:48 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_printlist(t_list *stack)
 	printf("\n");
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
@@ -59,6 +59,7 @@ int main(int ac, char **av)
 	if (ac < 2)
 		exit(0);
 	ft_checker(&a, av);
+	ft_index(&a);
 	ft_sorts(&a, &b);
 	ft_printlist(a);
 	ft_end(&a);

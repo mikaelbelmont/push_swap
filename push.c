@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:27:15 by mbarreto          #+#    #+#             */
+/*   Updated: 2022/09/30 13:30:04 by mbarreto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_list **dst, t_list **src)
@@ -10,7 +22,6 @@ void	push(t_list **dst, t_list **src)
 	ft_lstadd_front(dst, *src);
 	(*dst)->next = (*dst);
 	(*src) = (*src)->next;
-
 }
 
 void	pa(t_list **a, t_list **b)

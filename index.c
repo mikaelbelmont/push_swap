@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   index.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:31:06 by mbarreto          #+#    #+#             */
+/*   Updated: 2022/09/30 16:04:49 by mbarreto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void ft_index(t_list **a)
+void	ft_index(t_list **a)
 {
 	t_list	*tmp;
 	int		i;
@@ -10,7 +22,7 @@ void ft_index(t_list **a)
 	while (i++ < ft_lstsize(*a))
 	{
 		tmp = *a;
-		count = 2147483647;
+		count = INT_MAX;
 		while (tmp)
 		{
 			if (count > tmp->content && tmp->index == 0)
@@ -22,5 +34,16 @@ void ft_index(t_list **a)
 			tmp = tmp->next;
 		tmp->index = i;
 	}
+}
 
+void	extremes(t_list *a, int *max, int *min)
+{
+	while (a)
+	{
+		if (a->index > *max)
+			*max = a->index;
+		if (a->index > *min)
+			*min = a->index;
+		a = a->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:53 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/09/28 16:49:43 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/09/30 13:28:46 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,19 @@ static long	ft_atoibuf(char **str)
 	while (**str >= '0' && **str <= '9')
 	{
 		n = n * 10 + (**str - '0');
-		
 		if (n < -2147483648 || n > 2147483647)
 			return (2147483648);
 		*str += 1;
 	}
+	while (**str == ' ' || **str == '\n' || **str == '\t'
+		|| **str == '\v' || **str == '\f' || **str == '\r')
+		*str += 1;
 	return (n * neg);
 }
 
 int	ft_checkdups(t_list **a, int n)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = (*a);
 	if (!tmp)
@@ -75,10 +77,10 @@ void	ft_newnode(t_list **a, int n)
 
 void	ft_checker(t_list **a, char **av)
 {
-	int n;
+	int	n;
 	int	i;
-	int first;
-	
+	int	first;
+
 	i = 0;
 	n = 0;
 	first = 0;

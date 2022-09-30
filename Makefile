@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SRCS = main.c checker.c swaps.c sort1.c exit.c rev_rotates.c rotates.c \
-		index.c finished.c
+		push.c index.c finished.c
 
 LIBFT = libft/libft.a
 

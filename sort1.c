@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:27:38 by mbarreto          #+#    #+#             */
+/*   Updated: 2022/09/30 15:09:54 by mbarreto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void sort2(t_list **a)
+void	sort2(t_list **a)
 {
 	if ((*a)->content > (*a)->next->content)
 		sa(a);
 	return ;
 }
 
-void sort3(t_list **a)
+void	sort3(t_list **a)
 {
 	while (!((*a)->content < (*a)->next->content && \
 			(*a)->next->content < (*a)->next->next->content))
@@ -27,17 +39,22 @@ void sort3(t_list **a)
 	}
 }
 
-void sort4(t_list **a, t_list **b)
+void	sort4(t_list **a, t_list **b)
+{
+	int	max;
+	int	min;
+	
+	max = INT_MIN;
+	min = INT_MAX;
+	extremes(*a, &max, &min);
+}
+
+void	sort_big(t_list **a, t_list **b)
 {
 	
 }
 
-void sort_big(t_list **a, t_list **b)
-{
-	
-}
-
-void ft_sorts(t_list **a, t_list **b)
+void	ft_sorts(t_list **a, t_list **b)
 {
 	if (ft_lstsize(*a) == 2)
 	{
