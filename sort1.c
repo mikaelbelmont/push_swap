@@ -22,7 +22,7 @@ void	sort2(t_list **a)
 void	sort3(t_list **a)
 {
 	while (!((*a)->content < (*a)->next->content && \
-			(*a)->next->content < (*a)->next->next->content))
+		(*a)->next->content < (*a)->next->next->content))
 	{
 		if ((*a)->content > (*a)->next->content && \
 			(*a)->content < (*a)->next->next->content)
@@ -47,14 +47,41 @@ void	sort4(t_list **a, t_list **b)
 	max = INT_MIN;
 	min = INT_MAX;
 	extremes(*a, &max, &min);
+	while ((*a)->index != min)
+		ra(a);
+	pb(a, b);
+	sort3(a);
+	pa(a, b);
 }
 
-void	sort_big(t_list **a, t_list **b)
+void	sort4(t_list **a, t_list **b)
 {
+	int	max;
+	int	min;
 	
+	max = INT_MIN;
+	min = INT_MAX;
+	extremes(*a, &max, &min);
+	while ((*a)->index != max && (*a)->index != min)
+		ra(a);
+	pb(a, b);
+	while ((*a)->index != max && (*a)->index != min)
+		ra(a);
+	pb(a, b);
+	sort3(a);
+	if ((*b)-> index < (*b)->next->index)
+		ra(a);
+	pa(a, b);
+	ra(a);
+	pa(a, b);
 }
 
-void	ft_sorts(t_list **a, t_list **b)
+//void	sort_big(t_list **a, t_list **b)
+//{
+//	
+//}
+
+void	ft_sorts(t_list **a) //, t_list **b
 {
 	if (ft_lstsize(*a) == 2)
 	{
@@ -66,15 +93,15 @@ void	ft_sorts(t_list **a, t_list **b)
 		sort3(a);
 		return ;
 	}
-	if (ft_lstsize(*a) == 4)
-	{
-		sort4(a, b);
-		return ;
-	}
-	else
-	{
-		sort_big(a, b);
-		return ;
-	}
+	//if (ft_lstsize(*a) == 4)
+	//{
+	//	sort4(a, b);
+	//	return ;
+	//}
+	//else
+	//{
+	//	sort_big(a, b);
+	//	return ;
+	//}
 	return ;
 }

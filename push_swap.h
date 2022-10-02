@@ -34,7 +34,7 @@ void	rrr(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 
-void    ft_sorts(t_list **a, t_list **b);
+void    ft_sorts(t_list **a); //, t_list **b
 void	sort2(t_list **a);
 void	sort3(t_list **a);
 
@@ -42,6 +42,6 @@ void	ft_index(t_list **a);
 void	extremes(t_list *a, int *max, int *min);
 void	ft_end(t_list **stack);
 
-int     is_finished(t_list *stack);
+int     ft_finished(t_list *stack);
 
 #endif 
