@@ -52,15 +52,15 @@ void	ft_printlist(t_list *stack)
 int	main(int ac, char **av)
 {
 	t_list	*a;
-	//t_list	*b;
+	t_list	*b;
 
 	a = 0;
-	//b = 0;
+	b = 0;
 	if (ac < 2)
 		exit(0);
 	ft_checker(&a, av);
 	ft_index(&a);
-	ft_sorts(&a); //, &b
+	ft_sorts(&a, &b);
 	ft_printlist(a);
 	ft_end(&a);
 	return (0);
