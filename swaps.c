@@ -23,8 +23,8 @@ void	swap(t_list **stack)
 
 void	sa(t_list **a)
 {
-	write(1, "sa\n", 3);
 	swap(a);
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_list **b)
@@ -37,5 +37,5 @@ void	ss(t_list **a, t_list **b)
 {
 	swap(a);
 	swap(b);
-	write(1, "sb\n", 3);
+	write(1, "ss\n", 3);
 }

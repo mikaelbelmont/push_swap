@@ -42,7 +42,7 @@ void	extremes(t_list *a, int *max, int *min)
 	{
 		if (a->index > *max)
 			*max = a->index;
-		if (a->index > *min)
+		if (a->index < *min)
 			*min = a->index;
 		a = a->next;
 	}

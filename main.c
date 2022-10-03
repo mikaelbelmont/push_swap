@@ -37,6 +37,31 @@ int	checknum(char **av)
 	return (1);
 }
 
+void	ft_sorts(t_list **a, t_list **b)
+{
+	if (ft_lstsize(*a) == 2)
+	{
+		sort2(a);
+		return ;
+	}
+	if (ft_lstsize(*a) == 3)
+	{
+		sort3(a);
+		return ;
+	}
+	if (ft_lstsize(*a) == 4)
+	{
+		sort4(a, b);
+		return ;
+	}
+	else
+	{
+		sort5(a, b);
+		return ;
+	}
+	return ;
+}
+
 void	ft_printlist(t_list *stack)
 {
 	t_list *tmp = stack;

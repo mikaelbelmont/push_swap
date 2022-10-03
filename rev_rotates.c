@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void rev_rotate(t_list **stack)
+void	rev_rotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
@@ -25,19 +25,19 @@ void rev_rotate(t_list **stack)
 	first->next = 0;
 }
 
-void rra(t_list **a)
+void	rra(t_list **a)
 {
 	rev_rotate(a);
 	write(1, "rra\n", 4);
 }
 
-void rrb(t_list **b)
+void	rrb(t_list **b)
 {
 	rev_rotate(b);
 	write(1, "rrb\n", 4);
 }
 
-void rrr(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b)
 {
 	rev_rotate(a);
 	rev_rotate(b);

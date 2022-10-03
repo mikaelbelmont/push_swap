@@ -43,7 +43,7 @@ void	sort4(t_list **a, t_list **b)
 {
 	int	max;
 	int	min;
-	
+
 	max = INT_MIN;
 	min = INT_MAX;
 	extremes(*a, &max, &min);
@@ -58,7 +58,7 @@ void	sort5(t_list **a, t_list **b)
 {
 	int	max;
 	int	min;
-	
+
 	max = INT_MIN;
 	min = INT_MAX;
 	extremes(*a, &max, &min);
@@ -68,42 +68,15 @@ void	sort5(t_list **a, t_list **b)
 	while ((*a)->index != max && (*a)->index != min)
 		ra(a);
 	pb(a, b);
-	ft_printlist(*a);
 	sort3(a);
-	printf("aqui\n");
 	if ((*b)-> index < (*b)->next->index)
-		ra(a);
+		rb(b);
 	pa(a, b);
 	ra(a);
 	pa(a, b);
 }
 
-//void	sort_big(t_list **a, t_list **b)
-//{
-//	
-//}
-
-void	ft_sorts(t_list **a, t_list **b)
+void	sort_big(t_list **a, t_list **b)
 {
-	if (ft_lstsize(*a) == 2)
-	{
-		sort2(a);
-		return ;
-	}
-	if (ft_lstsize(*a) == 3)
-	{
-		sort3(a);
-		return ;
-	}
-	if (ft_lstsize(*a) == 4)
-	{
-		sort4(a, b);
-		return ;
-	}
-	else
-	{
-		sort5(a, b);
-		return ;
-	}
-	return ;
+	
 }

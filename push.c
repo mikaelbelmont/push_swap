@@ -17,11 +17,11 @@ void	push(t_list **dst, t_list **src)
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	tmp = (*dst);
+	tmp = *dst;
 	tmp2 = (*src)->next;
 	ft_lstadd_front(dst, *src);
-	(*dst)->next = (*dst);
-	(*src) = (*src)->next;
+	(*dst)->next = tmp;
+	(*src) = tmp2;
 }
 
 void	pa(t_list **a, t_list **b)
