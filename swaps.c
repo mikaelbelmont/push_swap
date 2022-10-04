@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:27:41 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/09/30 13:27:42 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/10/04 18:53:47 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	swap(t_list **stack)
 {
-	int	tmp;
+	t_list	*tmp;
 
-	tmp = (*stack)->content;
-	(*stack)->content = (*stack)->next->content;
-	(*stack)->next->content = tmp;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
 }
 
 void	sa(t_list **a)

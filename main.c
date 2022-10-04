@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:56 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/09/30 14:19:48 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:46:10 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,15 @@ int	checknum(char **av)
 void	ft_sorts(t_list **a, t_list **b)
 {
 	if (ft_lstsize(*a) == 2)
-	{
 		sort2(a);
-		return ;
-	}
-	if (ft_lstsize(*a) == 3)
-	{
+	else if (ft_lstsize(*a) == 3)
 		sort3(a);
-		return ;
-	}
-	if (ft_lstsize(*a) == 4)
-	{
+	else if (ft_lstsize(*a) == 4)
 		sort4(a, b);
-		return ;
-	}
-	else
-	{
+	else if (ft_lstsize(*a) == 5)
 		sort5(a, b);
-		return ;
-	}
+	else
+		sort_big(a, b);
 	return ;
 }
 
@@ -68,7 +58,7 @@ void	ft_printlist(t_list *stack)
 	
 	while (tmp != 0)
 	{
-		printf("%d - ", tmp->content);
+		printf("%d | ", tmp->content);
 		tmp = tmp->next;
 	}
 	printf("\n");
@@ -83,6 +73,7 @@ int	main(int ac, char **av)
 	b = 0;
 	if (ac < 2)
 		exit(0);
+	checknull(av);
 	ft_checker(&a, av);
 	ft_index(&a);
 	ft_sorts(&a, &b);

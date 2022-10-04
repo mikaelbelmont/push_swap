@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:27:38 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/09/30 15:09:54 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:45:39 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,13 @@ void	sort5(t_list **a, t_list **b)
 
 void	sort_big(t_list **a, t_list **b)
 {
-	
+	int	max;
+	int	min;
+	int	bitnum;
+
+	max = INT_MIN;
+	min = INT_MAX;
+	extremes(*a, &max, &min);
+	bitnum = biggerbits(max);
+	ft_radixsort(a, b, bitnum);
 }

@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:53 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/09/30 13:28:46 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:48:47 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static long	ft_atoibuf(char **str)
 
 	n = 0;
 	neg = 1;
-	while (**str == ' ' || **str == '\n' || **str == '\t'
-		|| **str == '\v' || **str == '\f' || **str == '\r')
+	while (**str == 32 || (**str >= 9 && **str <= 13))
 		*str += 1;
 	if (**str == '-' || **str == '+')
 	{
@@ -35,8 +34,7 @@ static long	ft_atoibuf(char **str)
 			return (2147483648);
 		*str += 1;
 	}
-	while (**str == ' ' || **str == '\n' || **str == '\t'
-		|| **str == '\v' || **str == '\f' || **str == '\r')
+	while (**str == 32 || (**str >= 9 && **str <= 13))
 		*str += 1;
 	return (n * neg);
 }
@@ -73,6 +71,22 @@ void	ft_newnode(t_list **a, int n)
 	ft_lstadd_back(a, newnode);
 	if (!a)
 		ft_end(a);
+}
+
+void	checknull(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (*str[i])
+	{
+		if (*str[i] == '-')
+		{
+			printf("Error\n");
+			exit(0);
+		}
+		i++;
+	}
 }
 
 void	ft_checker(t_list **a, char **av)
