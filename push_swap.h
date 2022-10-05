@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:32:46 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/10/04 19:48:10 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/10/05 15:59:48 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ void	sort4(t_list **a, t_list **b);
 void	sort5(t_list **a, t_list **b);
 void	sort_big(t_list **a, t_list **b);
 
-void    ft_radixsort(t_list **a, t_list **b, int bitnum);
-int     biggerbits(int max);
+void	ft_radixsort(t_list **a, t_list **b, int bitnum);
+int		biggerbits(int max);
 
 void	ft_index(t_list **a);
 void	extremes(t_list *a, int *max, int *min);
 
-void	ft_end(t_list **stack);
-int     ft_finished(t_list *stack);
+void	ft_end(t_list **stack, int i);
+int		ft_finished(t_list *stack);
 
 void	checknull(char **str);
-void	ft_printlist(t_list *stack); // extra
+void	ft_printlist(t_list *stack);
 
 #endif 

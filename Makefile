@@ -1,14 +1,13 @@
 NAME = push_swap
 
-# SRCS = main.c checker.c swaps.c sort1.c exit.c rev_rotates.c rotates.c \
-# 		push.c index.c radixsort.c finished.c
-SRCS	= $(wildcard *.c)
+SRCS = main.c checker.c swaps.c sort1.c exit.c rev_rotates.c \
+		rotates.c push.c index.c radixsort.c finished.c
 
 OBJS	= $(SRCS:.c=.o)
 
 LIBFT = libft/libft.a
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address  
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address  
 
 CC = gcc
 

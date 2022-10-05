@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 17:09:56 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/10/04 19:46:10 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:51:07 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	checknum(char **av)
 		while (av[i][j])
 		{
 			if (ft_isdigit(av[i][j]) == 0)
-			{
-				write(1, "Error\n", 6);
-				return (0);
-			}
+				ft_end(0, 1);
 			j++;
 		}
 		i++;
@@ -52,16 +49,18 @@ void	ft_sorts(t_list **a, t_list **b)
 	return ;
 }
 
-void	ft_printlist(t_list *stack)
+int	checkordered(t_list **a)
 {
-	t_list *tmp = stack;
-	
-	while (tmp != 0)
+	t_list	*tmp;
+
+	tmp = *a;
+	while (tmp->next)
 	{
-		printf("%d | ", tmp->content);
+		if (tmp->index > tmp->next->index)
+			return (0);
 		tmp = tmp->next;
 	}
-	printf("\n");
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -76,8 +75,9 @@ int	main(int ac, char **av)
 	checknull(av);
 	ft_checker(&a, av);
 	ft_index(&a);
+	if (checkordered(&a))
+		ft_end(&a, 0);
 	ft_sorts(&a, &b);
-	ft_printlist(a);
-	ft_end(&a);
+	ft_end(&a, 0);
 	return (0);
 }
